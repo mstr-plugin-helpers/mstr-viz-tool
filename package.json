@@ -1,0 +1,19 @@
+{
+  "name": "mstr-viz-tool",
+  "version": "0.0.1",
+  "description": "A command-line tool for creating MicroStrategy custom visualisations",
+  "main": "index.js",
+  "author": "Paul Bailey",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "viz-tool": "viz-tool"
+  },
+  "bin": {
+    "viz-tool": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^2.15.1",
+    "handlebars": "^4.0.11"
+  }
+}

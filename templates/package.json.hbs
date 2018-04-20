@@ -1,0 +1,72 @@
+{
+  "name": "mstr-plugin-viz-{{ lowerName }}",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "registry": "http://bis-test.eu.sony.com:9000/repository/npm-public/",
+  "scripts": {
+    "prejenkinstest": "eslint src/javascript/",
+    "jenkinstest": "nyc --reporter=lcov mocha -r jsdom-global/register --require babel-core/register --reporter xunit --reporter-options output=xunit/test_results.xml",
+    "pretest": "eslint src/javascript/",
+    "test": "nyc --reporter=text mocha -r jsdom-global/register --require babel-core/register",
+    "prepush": "yarn run test",
+    "push": "git push origin",
+    "prebuild": "yarn run test",
+    "build": "webpack --mode development",
+    "jenkinsbuild": "webpack --mode production",
+    "docs": "jsdoc -r -d docs src/ && git add docs/ && git commit -m \"Automated update of documentation\""
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
+    "eslint": "^4.6.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jsdom": "^11.6.2",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^5.0.5",
+    "mocha-jsdom": "^1.1.0",
+    "nyc": "^11.6.0",
+    "sinon": "^4.5.0",
+    "sinon-chai": "^3.0.0",
+    "standard": "^11.0.1",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "globals": {
+      "mstrmojo": true,
+      "mstrApp": true
+    },
+    "rules": {
+      "require-jsdoc": [
+        "error",
+        {
+          "require": {
+            "FunctionDeclaration": true,
+            "FunctionExpression": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": true
+          }
+        }
+      ],
+      "valid-jsdoc": [
+        "error"
+      ]
+    }
+  }
+}

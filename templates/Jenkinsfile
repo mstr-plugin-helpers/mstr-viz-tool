@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+    stages {
+        stage('Setup Build') {
+            steps {
+                slackSend (color: '#FFC200', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.RUN_DISPLAY_URL})")
+
+                nodejs(nodeJSInstallationName: 'node-8.4.0') {
+
+                bat 'yarn install --https-proxy http://proxy.scee.net:3128 --proxy http://proxy.scee.net:3128'
+            }
+            }
+        }
+        stage('Test') {
+            steps {
+                nodejs(nodeJSInstallationName: 'node-8.4.0') {
+                bat 'yarn run jenkinstest'
+                publishHTML target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'coverage/lcov-report',
+                    reportFiles: 'index.html',
+                    reportName: 'Code Coverage Report'
+                ]
+
+            }
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                nodejs(nodeJSInstallationName: 'node-8.4.0') {
+                bat 'yarn run jenkinsbuild'
+            }
+            }
+        }
+        stage('Archive') {
+            steps {
+                archiveArtifacts 'dist/'
+            }
+        }
+    }
+    post {
+        always {
+            junit 'xunit/**/*.xml'
+        }
+        success {
+            slackSend (color: '#3aa03a', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.RUN_DISPLAY_URL})")
+        }
+        failure {
+            slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.RUN_DISPLAY_URL})")
+
+        }
+    }
+}

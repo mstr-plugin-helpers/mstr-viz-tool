@@ -1,0 +1,64 @@
+(function () { 
+    if (!mstrmojo.plugins.{{ name }}) {
+        mstrmojo.plugins.{{ name }} = {};
+    }
+
+    mstrmojo.requiresCls(
+        "mstrmojo.vi.models.CustomVisDropZones",
+        "mstrmojo.array"
+    );
+
+    mstrmojo.plugins.{{ name }}.{{ name }}DropZones = mstrmojo.declare(
+        mstrmojo.vi.models.CustomVisDropZones,
+        null,
+        {
+            scriptClass: "mstrmojo.plugins.{{ name }}.{{ name }}DropZones",
+            cssClass: "{{ name }}dropzones",
+            getCustomDropZones: function getCustomDropZones(){
+ },
+            shouldAllowObjectsInDropZone: function shouldAllowObjectsInDropZone(zone, dragObjects, idx, edge, context) {
+ 
+
+
+
+
+
+
+
+
+},
+            getActionsForObjectsDropped: function getActionsForObjectsDropped(zone, droppedObjects, idx, replaceObject, extras) {
+ 
+
+
+
+
+
+
+
+
+},
+            getActionsForObjectsRemoved: function getActionsForObjectsRemoved(zone, objects) { 
+ 
+
+
+
+
+
+
+
+
+},
+            getDropZoneContextMenuItems: function getDropZoneContextMenuItems(cfg, zone, object, el) {
+ 
+
+
+
+
+
+
+
+
+}
+})}());
+//@ sourceURL={{ name }}DropZones.js
