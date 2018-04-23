@@ -51,13 +51,13 @@ function createOutputDir(outputDir) {
 }
 
 function substituteName (name, variables) {
-  const nameRegex = new RegExp('\{\{([^\{]+)\}\}', 'g')
+  const nameRegex = new RegExp('{{([^{]+)}}', 'g')
   return name.replace(nameRegex, function (_unused, varName) {
     return variables[varName]
   })
 }
 
-exports.templateDirectory = function (templateDir, outputDir, context) {
+module.exports.templateDirectory = function (templateDir, outputDir, context) {
   createOutputDir(outputDir)
   const templateData = getTemplates(templateDir)
   templateData.directories.forEach( function (dirRelName) {
