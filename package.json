@@ -2,7 +2,7 @@
   "name": "mstr-viz-tool",
   "version": "0.0.1",
   "description": "A command-line tool for creating MicroStrategy custom visualisations",
-  "main": "index.js",
+  "main": "cli.js",
   "author": "Paul Bailey",
   "license": "MIT",
   "private": false,
