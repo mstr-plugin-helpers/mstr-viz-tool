@@ -10,10 +10,11 @@
     "viz-tool": "viz-tool"
   },
   "bin": {
-    "viz-tool": "./index.js"
+    "viz-tool": "./cli.js"
   },
   "dependencies": {
     "commander": "^2.15.1",
-    "handlebars": "^4.0.11"
+    "handlebars": "^4.0.11",
+    "inquirer": "^5.2.0"
   }
 }
