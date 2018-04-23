@@ -1,6 +1,6 @@
 (function () { 
-    if (!mstrmojo.plugins.{{ name }}) {
-        mstrmojo.plugins.{{ name }} = {};
+    if (!mstrmojo.plugins.{{name}}) {
+        mstrmojo.plugins.{{name}} = {};
     }
 
     mstrmojo.requiresCls(
@@ -8,12 +8,12 @@
         "mstrmojo.array"
     );
 
-    mstrmojo.plugins.{{ name }}.{{ name }}DropZones = mstrmojo.declare(
+    mstrmojo.plugins.{{name}}.{{name}}DropZones = mstrmojo.declare(
         mstrmojo.vi.models.CustomVisDropZones,
         null,
         {
             scriptClass: "mstrmojo.plugins.{{ name }}.{{ name }}DropZones",
-            cssClass: "{{ name }}dropzones",
+            cssClass: "{{lower name}}dropzones",
             getCustomDropZones: function getCustomDropZones(){
  },
             shouldAllowObjectsInDropZone: function shouldAllowObjectsInDropZone(zone, dragObjects, idx, edge, context) {
@@ -61,4 +61,4 @@
 
 }
 })}());
-//@ sourceURL={{ name }}DropZones.js
+//@ sourceURL={{name}}DropZones.js

@@ -1,14 +1,14 @@
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const pluginName = '{{ name }}'
+const pluginName = '{{name}}'
 
 module.exports = {
   devtool: 'source-map',
   entry: {
-    'javascript/mojo/js/source/{{ name }}': ['babel-polyfill', './src/javascript/{{ name }}.js'],
-    'javascript/mojo/js/source/{{ name }}DropZones': './src/javascript/{{ name }}DropZones.js',
-    'javascript/mojo/js/source/{{ name }}EditorModel': './src/javascript/{{ name }}EditorModel.js'
+    'javascript/mojo/js/source/{{name}}': ['babel-polyfill', './src/javascript/{{name}}.js'],
+    'javascript/mojo/js/source/{{name}}DropZones': './src/javascript/{{name}}DropZones.js',
+    'javascript/mojo/js/source/{{name}}EditorModel': './src/javascript/{{name}}EditorModel.js'
   },
   output: {
     filename: '[name].js',

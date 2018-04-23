@@ -1,9 +1,8 @@
 {
-  "name": "mstr-plugin-viz-{{ lowerName }}",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "registry": "http://bis-test.eu.sony.com:9000/repository/npm-public/",
+  "name": "mstr-plugin-viz-{{lower name}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
+  "main": "{{name}}.js",
   "scripts": {
     "prejenkinstest": "eslint src/javascript/",
     "jenkinstest": "nyc --reporter=lcov mocha -r jsdom-global/register --require babel-core/register --reporter xunit --reporter-options output=xunit/test_results.xml",

@@ -1,1 +1,0 @@
-# mstr-plugin-viz-{{ lowerName }}
