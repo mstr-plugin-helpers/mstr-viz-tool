@@ -1,9 +1,8 @@
 {
   "name": "mstr-plugin-viz-{{ lowerName }}",
-  "version": "1.0.0",
-  "description": "",
+  "version": "{{version }}",
+  "description": "{{ description }}",
   "main": "index.js",
-  "registry": "http://bis-test.eu.sony.com:9000/repository/npm-public/",
   "scripts": {
     "prejenkinstest": "eslint src/javascript/",
     "jenkinstest": "nyc --reporter=lcov mocha -r jsdom-global/register --require babel-core/register --reporter xunit --reporter-options output=xunit/test_results.xml",
@@ -21,7 +20,6 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
-    "babel-plugin-external-helpers": "^6.22.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
@@ -42,7 +40,6 @@
     "nyc": "^11.6.0",
     "sinon": "^4.5.0",
     "sinon-chai": "^3.0.0",
-    "standard": "^11.0.1",
     "webpack": "^4.2.0",
     "webpack-cli": "^2.0.13"
   },
