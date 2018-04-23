@@ -7,7 +7,7 @@ pipeline {
 
                 nodejs(nodeJSInstallationName: 'node-8.4.0') {
 
-                bat 'yarn install --https-proxy http://proxy.scee.net:3128 --proxy http://proxy.scee.net:3128'
+                bat 'yarn install'
             }
             }
         }
