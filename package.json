@@ -9,12 +9,9 @@
   "author": "Paul Bailey",
   "license": "MIT",
   "private": false,
-  "engines": {
-    "node": ">=8.9.0"
-  },
+  "preferGlobal": true,
   "scripts": {
-    "lint": "eslint cli.js src/",
-    "viz-tool": "viz-tool"
+    "lint": "eslint cli.js src/"
   },
   "bin": {
     "viz-tool": "./cli.js"
@@ -26,13 +23,10 @@
   },
   "devDependencies": {
     "eslint": "^4.19.1",
-    "eslint-plugin-node": "^6.0.1"
-  },
-  "eslintConfig": {
-      "plugins": ["node"],
-      "extends": ["eslint:recommended", "plugin:node/recommended"],
-      "rules": {
-          "node/exports-style": ["error", "module.exports"]
-      }
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1"
   }
 }
