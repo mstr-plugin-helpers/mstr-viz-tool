@@ -1,6 +1,9 @@
 {
   "name": "mstr-viz-tool",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=8.9.0"
+  },
   "description": "A command-line tool for creating MicroStrategy custom visualisations",
   "main": "cli.js",
   "author": "Paul Bailey",
@@ -16,5 +19,16 @@
     "commander": "^2.15.1",
     "handlebars": "^4.0.11",
     "inquirer": "^5.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-plugin-node": "^6.0.1"
+  },
+  "eslintConfig": {
+      "plugins": ["node"],
+      "extends": ["eslint:recommended", "plugin:node/recommended"],
+      "rules": {
+          "node/exports-style": ["error", "module.exports"]
+      }
   }
 }
