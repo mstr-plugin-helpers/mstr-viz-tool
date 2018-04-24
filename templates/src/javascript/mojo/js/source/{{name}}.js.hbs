@@ -10,13 +10,14 @@
     'mstrmojo.vi.models.editors.CustomVisEditorModel'
   )
 
-  mstrmojo.plugins.{{ name }}.{{ name }} = mstrmojo.declare(
+  mstrmojo.plugins.{{name}}.{{name}} = mstrmojo.declare(
     mstrmojo.CustomVisBase,
     null,
     {
       supportNEE: true,
-      scriptClass: 'mstrmojo.plugins.{{ name }}.{{ name }}',
-      cssClass: '{{ lowerName }}',
+
+      scriptClass: 'mstrmojo.plugins.{{name}}.{{name}}',
+      cssClass: '{{lower name}}',
       errorMessage: 'Either there is not enough data to display the visualization or the visualization configuration is incomplete.',
       errorDetails: 'This visualization requires zero attributes and one or more metrics.',
       externalLibraries: [],

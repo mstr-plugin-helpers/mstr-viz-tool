@@ -1,8 +1,8 @@
 {
-  "name": "mstr-plugin-viz-{{ lowerName }}",
-  "version": "{{version }}",
-  "description": "{{ description }}",
-  "main": "index.js",
+  "name": "mstr-plugin-viz-{{lower name}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
+  "main": "{{name}}.js",
   "scripts": {
     "prejenkinstest": "eslint src/javascript/",
     "jenkinstest": "nyc --reporter=lcov mocha -r jsdom-global/register --require babel-core/register --reporter xunit --reporter-options output=xunit/test_results.xml",

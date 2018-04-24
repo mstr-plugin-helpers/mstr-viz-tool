@@ -1,6 +1,10 @@
 const fs = require('fs')
 const path = require('path')
-const handlebars = require('handlebars')
+const Handlebars = require('handlebars')
+
+Handlebars.registerHelper('lower', function(paramString) {
+  return new Handlebars.SafeString(paramString.toLowerCase())
+})
 
 function getTemplates(templateDir) {
   const baseDir = path.normalize(templateDir)
@@ -35,10 +39,7 @@ function getTemplates(templateDir) {
 
  function templateToFile (templatePath, outFile, props) {
   const tmplFile = fs.readFileSync(templatePath)
-  if (props.name) {
-    props.lowerName = props.name.toLowerCase()
-  }
-  const tmplScript = handlebars.compile(tmplFile.toString())
+  const tmplScript = Handlebars.compile(tmplFile.toString())
   fs.writeFileSync(outFile, tmplScript(props))
 }
 
