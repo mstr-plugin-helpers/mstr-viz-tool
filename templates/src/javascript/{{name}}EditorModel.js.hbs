@@ -1,29 +1,21 @@
 (function () { 
-    if (!mstrmojo.plugins.{{name}}) {
-        mstrmojo.plugins.{{name}} = {};
+  if (!mstrmojo.plugins.{{name}}) {
+    mstrmojo.plugins.{{name}} = {}
+  }
+
+  mstrmojo.requiresCls(
+    "mstrmojo.vi.models.editors.CustomVisEditorModel",
+    "mstrmojo.array"
+  )
+
+  mstrmojo.plugins.{{name}}.{{name}}EditorModel = mstrmojo.declare(
+    mstrmojo.vi.models.editors.CustomVisEditorModel,
+    null,
+    {
+      scriptClass: "mstrmojo.plugins.{{name}}.{{name}}EditorModel",
+      cssClass: "{{lower name}}editormodel",
+      getCustomProperty: function () {
+      }
     }
-
-    mstrmojo.requiresCls(
-        "mstrmojo.vi.models.editors.CustomVisEditorModel",
-        "mstrmojo.array"
-    );
-
-    mstrmojo.plugins.{{name}}.{{name}}EditorModel = mstrmojo.declare(
-        mstrmojo.vi.models.editors.CustomVisEditorModel,
-        null,
-        {
-            scriptClass: "mstrmojo.plugins.{{name}}.{{name}}EditorModel",
-            cssClass: "{{lower name}}editormodel",
-            getCustomProperty: function getCustomProperty(){
-
-
-
-
-
-
-
-
-
-}
-})}());
-//@ sourceURL={{ name }}EditorModel.js
+  )
+}())
