@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const Handlebars = require('handlebars')
 
-Handlebars.registerHelper('lower', function(paramString) {
+Handlebars.registerHelper('lower', (paramString) => {
   return new Handlebars.SafeString(paramString.toLowerCase())
 })
 
@@ -14,7 +14,7 @@ function getTemplates(templateDir) {
   while (directoriesToScan.length >= 1) {
     const scanDir = directoriesToScan.shift()
     const dirContents = fs.readdirSync(scanDir)
-    dirContents.forEach(function (file) {
+    dirContents.forEach((file) => {
       const pathLike = path.resolve(scanDir, file)
       const relPath = path.relative(templateDir, pathLike)
       const stats = fs.lstatSync(pathLike)
@@ -64,7 +64,7 @@ module.exports.templateDirectory = function (templateDir, outputDir, context) {
     dirRelName = substituteName(dirRelName, context)
     createOutputDir(path.resolve(outputDir, dirRelName))
   })
-  templateData.templates.forEach(function (fileEntry) { 
+  templateData.templates.forEach((fileEntry) => { 
     let outputFileName = path.resolve(outputDir, fileEntry.relPath)
     let template = false
     if (outputFileName.slice(-4) === '.hbs') {

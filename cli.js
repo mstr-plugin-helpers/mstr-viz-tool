@@ -12,7 +12,7 @@ program
  .command('init <name> [path]')
  .alias('i')
  .description('Creates a new visualisation from templates')
- .action(function(name, pathName) {
+ .action((name, pathName) => {
    if (!pathName) {
     pathName = process.cwd()
    }
