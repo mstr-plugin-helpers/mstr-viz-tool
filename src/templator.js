@@ -6,7 +6,7 @@ Handlebars.registerHelper('lower', (paramString) => {
   return new Handlebars.SafeString(paramString.toLowerCase())
 })
 
-function getTemplates(templateDir) {
+function getTemplates (templateDir) {
   const baseDir = path.normalize(templateDir)
   let templates = []
   let directories = []
@@ -37,13 +37,13 @@ function getTemplates(templateDir) {
   }
 }
 
- function templateToFile (templatePath, outFile, props) {
+function templateToFile (templatePath, outFile, props) {
   const tmplFile = fs.readFileSync(templatePath)
   const tmplScript = Handlebars.compile(tmplFile.toString())
   fs.writeFileSync(outFile, tmplScript(props))
 }
 
-function createOutputDir(outputDir) {
+function createOutputDir (outputDir) {
   const normOutputDir = path.normalize(outputDir)
   if (!fs.existsSync(normOutputDir)) {
     fs.mkdirSync(normOutputDir)
@@ -60,11 +60,11 @@ function substituteName (name, variables) {
 module.exports.templateDirectory = function (templateDir, outputDir, context) {
   createOutputDir(outputDir)
   const templateData = getTemplates(templateDir)
-  templateData.directories.forEach( function (dirRelName) {
+  templateData.directories.forEach(function (dirRelName) {
     dirRelName = substituteName(dirRelName, context)
     createOutputDir(path.resolve(outputDir, dirRelName))
   })
-  templateData.templates.forEach((fileEntry) => { 
+  templateData.templates.forEach((fileEntry) => {
     let outputFileName = path.resolve(outputDir, fileEntry.relPath)
     let template = false
     if (outputFileName.slice(-4) === '.hbs') {
@@ -72,7 +72,7 @@ module.exports.templateDirectory = function (templateDir, outputDir, context) {
       template = true
     }
     outputFileName = substituteName(outputFileName, context)
-    if(template === true) {
+    if (template === true) {
       templateToFile(fileEntry.file, outputFileName, context)
     } else {
       fs.copyFileSync(fileEntry.file, outputFileName)
